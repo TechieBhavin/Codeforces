@@ -1,0 +1,52 @@
+A. Theatre Square
+time limit per test1 second
+memory limit per test256 megabytes
+Theatre Square in the capital city of Berland has a rectangular shape with the size n × m meters. On the occasion of the city's anniversary, a decision was taken to pave the Square with square granite flagstones. Each flagstone is of the size a × a.
+
+What is the least number of flagstones needed to pave the Square? It's allowed to cover the surface larger than the Theatre Square, but the Square has to be covered. It's not allowed to break the flagstones. The sides of flagstones should be parallel to the sides of the Square.
+
+Input
+The input contains three positive integer numbers in the first line: n,  m and a (1 ≤  n, m, a ≤ 109).
+
+Output
+Write the needed number of flagstones.
+
+Examples
+InputCopy
+6 6 4
+OutputCopy
+4
+
+  
+solution :
+
+import java.util.Scanner;
+ 
+public class TheatreSquare {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+ 
+        // Read inputs: n (length), m (width), and a (side of flagstone)
+        long n = sc.nextLong();  // Length of the square
+        long m = sc.nextLong();  // Width of the square
+        long a = sc.nextLong();  // Side length of the flagstone
+        
+        // Calculate the number of flagstones required for both dimensions
+        // long flagstonesLength = (n + a - 1) / a;  // Equivalent to ceil(n / a)
+        // long flagstonesWidth = (m + a - 1) / a;   // Equivalent to ceil(m / a)
+         long len=n%a;
+        long bred=m%a;
+        long count=n/a;
+        if(len!=0) count++;
+        long count2=m/a;
+       
+        if(bred!=0) count2++;
+ 
+        // The total number of flagstones is the product of the two values
+        // long totalFlagstones = flagstonesLength * flagstonesWidth;
+ 
+        // Output the result
+        // System.out.println(totalFlagstones);
+        System.out.println(count*count2);
+    }
+}
